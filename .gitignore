@@ -48,3 +48,7 @@ coverage.xml
 
 # Sphinx documentation
 docs/_build
+
+# AB aditionss:
+# Excluding database
+db.sqlite3
