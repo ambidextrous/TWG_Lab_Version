@@ -29,4 +29,4 @@ class Page(models.Model):
 		
 	# AB: Included to meet specifications not following def __str__(self):
 	def __unicode__(self):
-		return self.name		
+		return self.title		
