@@ -1,7 +1,7 @@
 from django import forms
 from rango.models import Page, Category
 
-class CategoryFrom(forms.ModelForm):
+class CategoryForm(forms.ModelForm):
 	name = forms.CharField(max_length=128,
 						   help_text="Please enter the category name.")
 	views = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
@@ -29,7 +29,7 @@ class PageForm(forms.ModelForm):
 		# This way we don't need every field in the model present.
 		# Some fields may allow NULL values, so we may not want to include them.
 		# Here, we are hiding the foreign key.
-		# we can either exclude teh category field from the form,
+		# we can either exclude the category field from the form,
 		exclude = ('category',)
 		# or specify the fields to include (i.e. not include the category field)
 		# fields = ('title', 'url', 'views')
