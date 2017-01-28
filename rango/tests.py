@@ -2,6 +2,8 @@ from django.test import TestCase
 from django.core.urlresolvers import reverse
 from django.contrib.staticfiles import finders
 
+from rango.models import Category
+
 # Thanks to Enzo Roiz https://github.com/enzoroiz who made these tests during an internship with us
 
 class GeneralTests(TestCase):
@@ -248,3 +250,15 @@ class Chapter7ViewTests(TestCase):
 
 
     # test if the add_page.html template exists.
+	
+	
+
+class CategoryMethodTests(TestCase):
+	def test_ensure_views_are_positive(self):
+		"""
+		ensure_views_are_positive should results True for categories
+		where views are zero or positive
+		"""
+		cat = Category(name='test',views=-1, likes=0)
+		cat.save()
+		self.assertEqual((cat.views >= 0),True)	
