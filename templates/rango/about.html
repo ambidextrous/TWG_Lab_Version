@@ -1,4 +1,5 @@
 {% extends 'rango/base.html' %}
+
 {% load staticfiles %}
 
 {% block title_block %}
@@ -7,6 +8,9 @@
 
 {% block body_block %}
 	<p> This tutorial has been put together by Aidan</p>
+
+    <p>You've visited the site on <strong>{{ visit_count }} occasion(s).</strong><br/></p>
+
 	
 	<div>
 		<img src="{% static "images/cat.jpg" %}"

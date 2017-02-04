@@ -71,8 +71,15 @@ def about(request):
 		print("TEST COOKIE WORKED!")
 		request.session.delete_test_cookie()
 
+	#context = RequestContext(request)	
+	count = request.session.get('visits',0)
+	context_dict = {}
+	context_dict['visit_count'] = count		
+		
 	#return HttpResponse("Rango says here is the about page. <a href='/rango/'>Index</a>")
-	return render(request, 'rango/about.html', {})
+	#return render(request, 'rango/about.html', {})
+	return render(request, 'rango/about.html', context_dict)
+
 	
 def show_category (request, category_name_slug):
 	# Create a context dictionary which we can pass
